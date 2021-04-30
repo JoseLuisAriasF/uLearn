@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "694211815195",
+    "project_id": "ulearn-616e2",
+    "storage_bucket": "ulearn-616e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694211815195:android:a99e38dbb407ff9c1095be",
+        "android_client_info": {
+          "package_name": "com.example.ulearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694211815195-cu55l15dohr8bmlk7lhlea962d4iioli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVANRJp8nE5Vk_QlQnyHqkm2qHk9abyrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694211815195-cu55l15dohr8bmlk7lhlea962d4iioli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
