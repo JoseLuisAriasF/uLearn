@@ -14,7 +14,7 @@ public class activity_sumayresta extends AppCompatActivity {
 
     int numeroUno, numeroDos, respuesta, indice;
     String signoAleatorio;
-    boolean flag = true;
+    boolean flag = true, verificar;
     char[] arraySigno = {'+', '-'};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,26 +33,28 @@ public class activity_sumayresta extends AppCompatActivity {
     }
     public void Operaciones(){
 
+        verificar = false;
+
         numeroUno = aleatorioNumeroUno();
         numeroDos = aleatorioNumeroDos();
         signoAleatorio = String.valueOf(arraySigno[aleatorioSigno()]);
         indice = aleatorioPosicion();
 
         while (flag){
-            if(numeroUno < numeroDos){
-                numeroUno = aleatorioNumeroUno();
-                numeroDos = aleatorioNumeroDos();
-            }else{
-                break;
+            if(signoAleatorio.equals("+")){
+                respuesta = numeroUno + numeroDos;
+                flag = false;
+            }else if(signoAleatorio.equals("-")){
+
+                if(numeroUno < numeroDos){
+                    numeroUno = aleatorioNumeroUno();
+                    numeroDos = aleatorioNumeroDos();
+                }else{
+                    flag=false;
+                }
+                respuesta = numeroUno - numeroDos;
             }
         }
-
-        if(signoAleatorio.equals("+")){
-            respuesta = numeroUno + numeroDos;
-        }else if(signoAleatorio.equals("-")){
-            respuesta = numeroUno - numeroDos;
-        }
-
 
         switch (indice){
             case 0:
@@ -70,41 +72,105 @@ public class activity_sumayresta extends AppCompatActivity {
         }
 
         if(respUno.getText().equals(String.valueOf(respuesta))){
-            respDos.setText(""+aleatorioRespuesta());
 
-            respTres.setText(""+aleatorioRespuesta());
+            int valor2, valor3, valor4;
+            valor2 = aleatorioRespuesta();
+            valor3 = aleatorioRespuesta();
+            valor4 = aleatorioRespuesta();
 
-            respCuatro.setText(""+aleatorioRespuesta());
+            while(verificar==false){
+                if(valor2 != respuesta && valor2 != valor3 && valor2 != valor4 &&
+                        valor3 != respuesta && valor3 != valor4 && valor4 != respuesta){
+                    verificar = true;
+                }else{
+                    valor2 = aleatorioRespuesta();
+                    valor3 = aleatorioRespuesta();
+                    valor4 = aleatorioRespuesta();
+                }
+            }
+
+
+            respDos.setText(""+valor2);
+            respTres.setText(""+valor3);
+            respCuatro.setText(""+valor4);
 
 
         }else if(respDos.getText().equals(String.valueOf(respuesta))){
-            respUno.setText(""+aleatorioRespuesta());
+            int valor1, valor3, valor4;
+            valor1 = aleatorioRespuesta();
+            valor3 = aleatorioRespuesta();
+            valor4 = aleatorioRespuesta();
 
-            respTres.setText(""+aleatorioRespuesta());
+            while(verificar==false){
+                if(valor1 != respuesta && valor1 != valor3 && valor1 != valor4 &&
+                        valor3 != respuesta && valor3 != valor4 && valor4 != respuesta){
+                    verificar = true;
+                }else{
+                    valor1 = aleatorioRespuesta();
+                    valor3 = aleatorioRespuesta();
+                    valor4 = aleatorioRespuesta();
+                }
+            }
 
-            respCuatro.setText(""+aleatorioRespuesta());
+
+
+            respTres.setText(""+valor3);
+            respUno.setText(""+valor1);
+            respCuatro.setText(""+valor4);
 
 
         }else if(respTres.getText().equals(String.valueOf(respuesta))){
-            respUno.setText(""+aleatorioRespuesta());
+            int valor2, valor1, valor4;
+            valor2 = aleatorioRespuesta();
+            valor1 = aleatorioRespuesta();
+            valor4 = aleatorioRespuesta();
 
-            respDos.setText(""+aleatorioRespuesta());
+            while(verificar==false){
+                if(valor2 != respuesta && valor2 != valor1 && valor2 != valor4 &&
+                        valor1 != respuesta && valor1 != valor4 && valor4 != respuesta){
+                    verificar = true;
+                }else{
+                    valor2 = aleatorioRespuesta();
+                    valor1 = aleatorioRespuesta();
+                    valor4 = aleatorioRespuesta();
+                }
+            }
 
-            respCuatro.setText(""+aleatorioRespuesta());
+
+            respDos.setText(""+valor2);
+            respUno.setText(""+valor1);
+            respCuatro.setText(""+valor4);
 
 
         }else if(respCuatro.getText().equals(String.valueOf(respuesta))){
-            respUno.setText(""+aleatorioRespuesta());
+            int valor2, valor3, valor1;
+            valor2 = aleatorioRespuesta();
+            valor3 = aleatorioRespuesta();
+            valor1 = aleatorioRespuesta();
 
-            respDos.setText(""+aleatorioRespuesta());
+            while(verificar==false){
+                if(valor2 != respuesta && valor2 != valor3 && valor2 != valor1 &&
+                        valor3 != respuesta && valor3 != valor1 && valor1 != respuesta){
+                    verificar = true;
+                }else{
+                    valor2 = aleatorioRespuesta();
+                    valor3 = aleatorioRespuesta();
+                    valor1 = aleatorioRespuesta();
+                }
+            }
 
-            respTres.setText(""+aleatorioRespuesta());
+
+            respDos.setText(""+valor2);
+            respTres.setText(""+valor3);
+            respUno.setText(""+valor1);
 
         }
 
         primerNumero.setText("" + numeroUno);
         segundoNumero.setText("" + numeroDos);
         signo.setText("" + signoAleatorio);
+
+        flag=true;
     }
 
 
@@ -145,7 +211,7 @@ public class activity_sumayresta extends AppCompatActivity {
             Operaciones();
 
         }else{
-            Toast.makeText(getApplicationContext(),"HAS xddd",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -158,7 +224,7 @@ public class activity_sumayresta extends AppCompatActivity {
             Operaciones();
 
         }else{
-            Toast.makeText(getApplicationContext(),"HAS xxxx",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -171,7 +237,7 @@ public class activity_sumayresta extends AppCompatActivity {
             Operaciones();
 
         }else{
-            Toast.makeText(getApplicationContext(),"HAS sdsd",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -184,7 +250,7 @@ public class activity_sumayresta extends AppCompatActivity {
             Operaciones();
 
         }else{
-            Toast.makeText(getApplicationContext(),"HAS PEsdsdsRDIDO",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
     }
 }

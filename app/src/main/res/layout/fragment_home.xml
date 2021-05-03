@@ -240,7 +240,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Matematica"
+                    android:text="Extras"
                     android:textColor="@color/white"
                     android:textSize="25dp"
                     android:textStyle="bold" />
