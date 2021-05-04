@@ -2,15 +2,28 @@ package com.example.ulearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class activity_sumayresta extends AppCompatActivity {
     TextView primerNumero, segundoNumero, signo;
     Button respUno, respDos, respTres, respCuatro;
+
+    ProgressBar pTiempo;
+    TextView txtCorrectas, txtIntentos, txtPuntaje;
+    int [] milisegundos = {0, 60000};
+    long tiempoJuego;
+    boolean bandera, bandera1;
+    private Handler miHandler = new Handler();
+    int finalizaJuego = 0;
+    int correctos, puntaje, intentos;
 
     int numeroUno, numeroDos, respuesta, indice;
     String signoAleatorio;
@@ -20,6 +33,12 @@ public class activity_sumayresta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sumayresta);
+
+        txtCorrectas = findViewById(R.id.txtCorrectas);
+        txtIntentos = findViewById(R.id.txtIntentos);
+        txtPuntaje = findViewById(R.id.txtPuntaje);
+        pTiempo = findViewById(R.id.pTiempo);
+
         primerNumero = (TextView)findViewById(R.id.primerNumero);
         segundoNumero = (TextView)findViewById(R.id.segundoNumero);
         signo = (TextView) findViewById(R.id.signo);
@@ -28,9 +47,86 @@ public class activity_sumayresta extends AppCompatActivity {
         respTres = (Button) findViewById(R.id.tercerResultado);
         respCuatro = (Button) findViewById(R.id.cuartoResultado);
 
+        inicializarValores();
+        asignarValores();
+        iniciarJuego();
         Operaciones();
 
     }
+
+    private void inicializarValores() {
+        tiempoJuego = 10000;
+        correctos = 0;
+        intentos = 3;
+        puntaje = 0;
+
+        bandera = true;
+        bandera1 = true;
+
+        milisegundos[1] = (int)tiempoJuego;
+        pTiempo.setMax((int)tiempoJuego);
+        pTiempo.setProgress((int)tiempoJuego);
+
+    }
+
+    private void asignarValores() {
+        txtCorrectas.setText(Integer.toString(correctos));
+        txtIntentos.setText(Integer.toString(intentos));
+        txtPuntaje.setText(Integer.toString(puntaje));
+    }
+
+
+    private void iniciarJuego(){
+        final Thread miHilo=new Thread(){
+            @Override
+            public void run(){
+                try {
+
+                    while(bandera){
+                        Thread.sleep(1);
+                        ejecutarHiloJuego();
+                    }
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        };
+        miHilo.start();
+    }
+
+
+    private void ejecutarHiloJuego(){
+        miHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                if(bandera1){
+
+                    milisegundos[0]++;
+                    milisegundos[1]--;
+
+                    pTiempo.setProgress(milisegundos[1]);
+
+                    terminarJuego();
+                }
+            }
+        });
+
+    }
+
+    private void terminarJuego(){
+        if(finalizaJuego==0 && (intentos == 0 || milisegundos[1] == 0)){
+            finalizaJuego = 1;
+            bandera = false;
+            bandera1 = false;
+            Intent miIntent = new Intent(activity_sumayresta.this,activity_resultados.class);
+            miIntent.putExtra("variable_correctos", correctos);
+            miIntent.putExtra("variable_puntajes", puntaje);
+            startActivity(miIntent);
+            finish();
+        }
+    }
+
+
     public void Operaciones(){
 
         verificar = false;
@@ -209,10 +305,15 @@ public class activity_sumayresta extends AppCompatActivity {
         if(respuesta == numero) {
 
             Operaciones();
+            puntaje+=10;
+            correctos++;
 
         }else{
+            intentos--;
             Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
+
+        asignarValores();
     }
 
     public void operacionDos(View view){
@@ -222,10 +323,15 @@ public class activity_sumayresta extends AppCompatActivity {
         if(respuesta == numero) {
 
             Operaciones();
+            puntaje+=10;
+            correctos++;
 
         }else{
+            intentos--;
             Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
+
+        asignarValores();
     }
 
     public void operacionTres(View view){
@@ -235,10 +341,15 @@ public class activity_sumayresta extends AppCompatActivity {
         if(respuesta == numero) {
 
             Operaciones();
+            puntaje+=10;
+            correctos++;
 
         }else{
+            intentos--;
             Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
+
+        asignarValores();
     }
 
     public void operacionCuatro(View view){
@@ -248,9 +359,21 @@ public class activity_sumayresta extends AppCompatActivity {
         if(respuesta == numero) {
 
             Operaciones();
+            puntaje+=10;
+            correctos++;
 
         }else{
+            intentos--;
             Toast.makeText(getApplicationContext(),"Respuesta incorrecta",Toast.LENGTH_SHORT).show();
         }
+
+        asignarValores();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        bandera = false;
+        bandera1 = false;
     }
 }

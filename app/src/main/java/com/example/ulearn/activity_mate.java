@@ -13,13 +13,23 @@ public class activity_mate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mate);
     }
-    public void Siguientejuego1(View view){
-        Intent juego1=new Intent(this,activity_sumayresta.class);
-        startActivity(juego1);
+    public void juegoSumaResta(View view){
+        Intent juegoSumaResta=new Intent(this,activity_sumayresta.class);
+        startActivity(juegoSumaResta);
     }
 
     public void Siguientestroop(View view){
         Intent juego3=new Intent(this,activity_stroop.class);
         startActivity(juego3);
+    }
+
+    public void juegoMultDiv(View view){
+        Intent juegoMultDiv=new Intent(this,activity_multydiv.class);
+        startActivity(juegoMultDiv);
+    }
+
+    public void juegoAdivina(View view){
+        Intent juegoAdivina=new Intent(this,activity_memoria.class);
+        startActivity(juegoAdivina);
     }
 }

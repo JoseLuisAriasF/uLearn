@@ -42,7 +42,7 @@
                     android:background="@drawable/round_bg"
                     android:clickable="true"
                     android:gravity="center"
-                    android:onClick="Siguientejuego1"
+                    android:onClick="juegoSumaResta"
                     android:orientation="vertical">
 
                     <ImageView
@@ -81,6 +81,7 @@
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:clickable="true"
                     android:gravity="center"
+                    android:onClick="juegoAdivina"
                     android:orientation="vertical">
 
                     <ImageView
@@ -91,7 +92,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cuentos"
+                        android:text="Memoria"
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:textStyle="bold" />
@@ -118,7 +119,7 @@
                     android:background="@drawable/round_bg"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:clickable="true"
-
+                    android:onClick="juegoMultDiv"
                     android:gravity="center"
                     android:orientation="vertical"
                     >
@@ -170,19 +171,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Otro"
+                        android:text="Adivina"
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-
-
         </GridLayout>
     </ScrollView>
-
-
-
-
 </FrameLayout>
