@@ -28,8 +28,8 @@ public class activity_mate extends AppCompatActivity {
         startActivity(juegoMultDiv);
     }
 
-    public void juegoAdivina(View view){
-        Intent juegoAdivina=new Intent(this,activity_memoria.class);
-        startActivity(juegoAdivina);
+    public void juegoPuzzle(View view){
+        Intent juegoPuzzle=new Intent(this,activity_puzzleNumeros.class);
+        startActivity(juegoPuzzle);
     }
 }

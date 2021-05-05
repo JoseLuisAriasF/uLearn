@@ -51,7 +51,7 @@
             android:id="@+id/txtPalabrasCorrectas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Palabras Correctas"
+            android:text="Correctos"
             android:layout_marginTop="6dp"
             android:gravity="center"
             android:textSize="20sp"

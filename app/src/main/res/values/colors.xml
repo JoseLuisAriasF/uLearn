@@ -9,10 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="fondo">#FFC004</color>
     <color name="fondooscuro">#ED9736</color>
-
-
     <color name="rojo">#D50E0E</color>
     <color name="azul">#1847BD</color>
     <color name="verde">#138114</color>
     <color name="amarillo">#EDD329</color>
+    <color name="colorFreeButton">#00FFFFFF</color>
+
+
 </resources>

@@ -51,6 +51,7 @@
                         android:src="@drawable/logo" />
 
                     <TextView
+                        
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
@@ -58,6 +59,7 @@
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:textStyle="bold" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -81,7 +83,7 @@
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:clickable="true"
                     android:gravity="center"
-                    android:onClick="juegoAdivina"
+                    android:onClick="juegoPuzzle"
                     android:orientation="vertical">
 
                     <ImageView
@@ -92,7 +94,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Memoria"
+                        android:text="Puzzle"
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:textStyle="bold" />
