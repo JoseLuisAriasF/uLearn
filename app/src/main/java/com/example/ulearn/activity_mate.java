@@ -18,9 +18,9 @@ public class activity_mate extends AppCompatActivity {
         startActivity(juegoSumaResta);
     }
 
-    public void Siguientestroop(View view){
-        Intent juego3=new Intent(this,activity_stroop.class);
-        startActivity(juego3);
+    public void juegoPupiletra(View view){
+        Intent juegoPupiletra=new Intent(this,activity_Pupiletra.class);
+        startActivity(juegoPupiletra);
     }
 
     public void juegoMultDiv(View view){

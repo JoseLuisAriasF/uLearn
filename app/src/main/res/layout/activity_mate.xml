@@ -165,7 +165,7 @@
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="@drawable/round_bg"
                     android:clickable="true"
-                    android:onClick="Siguientestroop"
+                    android:onClick="juegoPupiletra"
                     android:orientation="vertical">
 
                     <ImageView
@@ -175,11 +175,12 @@
                         android:src="@drawable/logo" />
 
                     <TextView
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
-                        android:text="Adivina"
+                        android:text="Pupiletra de Numeros"
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:textStyle="bold" />

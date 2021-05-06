@@ -1,11 +1,15 @@
 package com.example.ulearn;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +30,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     private int MovCount = 0;
     private Timer timer;
     private int timeCount = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,5 +179,24 @@ public class activity_puzzleNumeros extends AppCompatActivity {
             timer.cancel();
             btnRestart.setClickable(false);
         }
+    }
+
+    public AlertDialog dialogHelp(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater imagen_alert = LayoutInflater.from(activity_puzzleNumeros.this);
+        final View Img = imagen_alert.inflate(R.layout.imghelp,null);
+        builder.setView(Img);
+        builder.setTitle("Ayuda").setMessage("Se debe ordenar los numeros del 1 al 15. De la siguieneta manera:")
+        .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        return builder.create();
+    }
+
+    public void Help(View view){
+        dialogHelp().show();
     }
 }

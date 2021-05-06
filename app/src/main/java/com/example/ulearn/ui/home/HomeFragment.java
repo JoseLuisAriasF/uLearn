@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ulearn.R;
 import com.example.ulearn.activity_mate;
+import com.example.ulearn.activity_extras;
 
 public class HomeFragment extends Fragment {
 
@@ -31,12 +32,20 @@ public class HomeFragment extends Fragment {
         linear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent intent = new Intent(getActivity(), activity_mate.class);
                 getActivity().startActivity(intent);
             }
         });
+
+        final LinearLayout linearExtras = root.findViewById(R.id.linearExtras);
+        linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), activity_extras.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
 
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
