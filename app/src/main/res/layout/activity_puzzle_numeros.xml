@@ -254,6 +254,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnNuevo"
             android:layout_width="wrap_content"
             android:background="@color/teal_700"
             android:text="Reiniciar"
@@ -262,6 +263,7 @@
 
         </Button>
         <Button
+            android:id="@+id/btnSalir"
             android:layout_width="wrap_content"
             android:background="@color/teal_700"
             android:layout_marginLeft="10dp"

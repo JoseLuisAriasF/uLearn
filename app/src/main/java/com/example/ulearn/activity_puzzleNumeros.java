@@ -20,6 +20,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     private int emptyY = 3;
     private RelativeLayout group;
     private Button [][] buttons;
+    private Button btnRestart, btnExit;
     private int [] tiles;
     private TextView textMov, textTime;
     private int MovCount = 0;
@@ -35,6 +36,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         cargarNumeros();
         generarNumeros();
         cargarDatosEnVistas();
+
     }
 
     private void cargarTimer(){
@@ -59,6 +61,9 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         textMov = findViewById(R.id.txtMovimientos);
         textTime = findViewById(R.id.txtTiempo);
         group=findViewById(R.id.group);
+        btnRestart = findViewById(R.id.btnNuevo);
+        btnExit = findViewById(R.id.btnSalir);
+
 
         cargarTimer();
         buttons = new Button[4][4];
@@ -66,6 +71,21 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         for(int i = 0; i < group.getChildCount(); i++){
             buttons[i/4][i%4] = (Button) group.getChildAt(i);
         }
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        btnRestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               generarNumeros();
+               cargarDatosEnVistas();
+            }
+        });
     }
 
     private void cargarNumeros(){
@@ -152,6 +172,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
             }
 
             timer.cancel();
+            btnRestart.setClickable(false);
         }
     }
 }
