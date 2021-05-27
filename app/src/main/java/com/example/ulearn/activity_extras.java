@@ -19,4 +19,9 @@ public class activity_extras extends AppCompatActivity {
         startActivity(juegoStroop);
     }
 
+    public void juegoMemoria(View view){
+        Intent juegoMemoria=new Intent(this,activity_memoria.class);
+        startActivity(juegoMemoria);
+    }
+
 }
