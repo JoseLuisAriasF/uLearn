@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/smeses" />
 
     <Button
-        android:id="@+id/btnregistrar"
+        android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -97,14 +97,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnregistrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="28dp"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginTop="32dp"
-        android:text="O"
+        android:text="Conectarse con"
         android:textSize="24dp"
         android:textAlignment="center"
         android:textColor="#FFC004"
@@ -143,6 +143,7 @@
             app:srcCompat="@drawable/facebook" />
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/gotoRegister"
         android:layout_width="wrap_content"
@@ -150,12 +151,29 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:onClick="fsregistrar"
-        android:text="¿Nuevo Usuario? Registrese ahora"
-        android:textColor="#ffc004"
+        android:text="¿Nuevo Usuario?"
+        android:textColor="#FAD900"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/gotoRegister2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="fsregistrar"
+        android:text="Registrese ahora"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondooscuro"
-    tools:context=".activity_puzzleNumeros">
+    tools:context=".activity_Pupiletra">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -153,7 +153,7 @@
             android:textSize="25dp"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:onClick="buttonComprobar"/>
+            android:onClick="buttonComprobar" />
 
         <Button
             android:id="@+id/button2"

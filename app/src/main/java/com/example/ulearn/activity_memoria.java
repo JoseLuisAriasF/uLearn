@@ -138,29 +138,35 @@ public class activity_memoria extends AppCompatActivity {
     }
 
     private void comprobar(int i, final ImageButton imgb){
+
         if(primero == null){
+
             primero = imgb;
             primero.setScaleType(ImageView.ScaleType.CENTER_CROP);
             primero.setImageResource(imagenes[arrayDesordenado.get(i)]);
             primero.setEnabled(false);
             numeroPrimero = arrayDesordenado.get(i);
+
         }else{
 
             bloqueo = true;
             imgb.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imgb.setImageResource(imagenes[arrayDesordenado.get(i)]);
             imgb.setEnabled(false);
-            numeroPrimero = arrayDesordenado.get(i);
+            numeroSegundo = arrayDesordenado.get(i);
+
+            System.out.println(numeroPrimero);
+            System.out.println(numeroSegundo);
 
             if(numeroPrimero == numeroSegundo){
                 primero = null;
                 bloqueo = false;
                 aciertos++;
                 puntuacion++;
-                textoPuntuacion.setText(puntuacion);
+                textoPuntuacion.setText(""+ puntuacion);
 
                 if(aciertos == imagenes.length){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Has ganado!!", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Felicidades, has ganado!!", Toast.LENGTH_LONG);
                     toast.show();
                 }
             }else{
@@ -171,9 +177,11 @@ public class activity_memoria extends AppCompatActivity {
                         primero.setScaleType(ImageView.ScaleType.CENTER_CROP);
                         primero.setImageResource(fondo);
                         primero.setEnabled(true);
+
                         imgb.setScaleType(ImageView.ScaleType.CENTER_CROP);
                         imgb.setImageResource(fondo);
                         imgb.setEnabled(true);
+
                         bloqueo = false;
                         primero = null;
                         puntuacion--;
@@ -195,7 +203,6 @@ public class activity_memoria extends AppCompatActivity {
         for(int i = 0; i< tablero.length; i++){
             tablero[i].setScaleType(ImageView.ScaleType.CENTER_CROP);
             tablero[i].setImageResource(imagenes[arrayDesordenado.get(i)]);
-            //tablero[i].setImageResource(fondo);
         }
 
         handler.postDelayed(new Runnable() {
@@ -206,7 +213,7 @@ public class activity_memoria extends AppCompatActivity {
                     tablero[i].setImageResource(fondo);
                 }
             }
-        }, 500);
+        }, 1000);
 
         for(int i = 0; i< tablero.length; i++){
             final int j = i;
@@ -222,7 +229,4 @@ public class activity_memoria extends AppCompatActivity {
         }
 
     }
-
-
-
 }

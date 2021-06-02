@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "694211815195",
-    "project_id": "ulearn-616e2",
-    "storage_bucket": "ulearn-616e2.appspot.com"
+    "project_number": "75859874907",
+    "project_id": "proyectojuego-48cc8",
+    "storage_bucket": "proyectojuego-48cc8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:694211815195:android:a99e38dbb407ff9c1095be",
+        "mobilesdk_app_id": "1:75859874907:android:b9f36eb13943dddf981b7e",
         "android_client_info": {
           "package_name": "com.example.ulearn"
         }
       },
       "oauth_client": [
         {
-          "client_id": "694211815195-cu55l15dohr8bmlk7lhlea962d4iioli.apps.googleusercontent.com",
+          "client_id": "75859874907-5j1h0pet2b77s3ncd105q90ju56ddean.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ulearn",
+            "certificate_hash": "4c65f5d0268eeb4fecde3b3ecc983d5f320c2c28"
+          }
+        },
+        {
+          "client_id": "75859874907-47knhvm9mi9gf03vue5k5u6ov9uflrc4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBVANRJp8nE5Vk_QlQnyHqkm2qHk9abyrA"
+          "current_key": "AIzaSyC4Of7eXsvTB5ojQzj8Ru5bWIXnZZFt2xQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "694211815195-cu55l15dohr8bmlk7lhlea962d4iioli.apps.googleusercontent.com",
+              "client_id": "75859874907-47knhvm9mi9gf03vue5k5u6ov9uflrc4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

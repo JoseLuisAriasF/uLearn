@@ -23,11 +23,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView" />
 
+
     <EditText
-        android:id="@+id/smeses"
+        android:id="@+id/inputNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/fui_ic_anonymous_white_24dp"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="Ingrese su nombre"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+
+    <EditText
+        android:id="@+id/inputCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
         android:drawableStart="@drawable/ic_email"
@@ -40,7 +61,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNombre" />
 
     <EditText
         android:id="@+id/inputPassword"
@@ -61,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smeses" />
+        app:layout_constraintTop_toBottomOf="@+id/inputCorreo" />
 
     <Button
         android:id="@+id/btnregistrar"
@@ -72,7 +93,7 @@
         android:layout_marginEnd="32dp"
 
         android:backgroundTint="#ffc004"
-        android:text="Registro"
+        android:text="Registrarse"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"

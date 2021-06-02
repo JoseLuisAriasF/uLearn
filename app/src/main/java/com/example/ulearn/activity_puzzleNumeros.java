@@ -199,4 +199,5 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     public void Help(View view){
         dialogHelp().show();
     }
+
 }
