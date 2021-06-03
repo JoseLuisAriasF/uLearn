@@ -1,6 +1,8 @@
 package com.example.ulearn;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,24 +27,18 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-
-    private TextView txtprueba;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-        txtprueba = findViewById(R.id.txtPrueba);
 
         getUserInfo();
 
@@ -64,8 +60,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    String nombre = snapshot.child("nombre").getValue().toString();
-                    txtprueba.setText(nombre);
+
+                    String idUsuario = snapshot.child("id").getValue().toString();
+                    String nombreUsuario = snapshot.child("nombre").getValue().toString();
+
+                    SharedPreferences preferencias = getSharedPreferences("Dato", Context.MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = preferencias.edit();
+                    editor.putString("MiNombre",nombreUsuario);
+                    editor.putString("MiId",idUsuario);
+                    editor.commit();
+
                 }
             }
 
