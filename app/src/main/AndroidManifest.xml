@@ -14,15 +14,6 @@
         <activity android:name=".activity_Pupiletra" />
         <activity android:name=".activity_extras">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
-
-
 
         </activity>
         <activity android:name=".activity_puzzleNumeros" />
@@ -31,7 +22,6 @@
         <activity android:name=".activity_stroop" />
         <activity android:name=".activity_sumayresta" />
         <activity android:name=".activity_mate">
-
 
 
 
@@ -48,7 +38,9 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity_login"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
         <activity
             android:name=".activity_edadhijo"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -56,6 +48,13 @@
             android:name=".activity_splash1"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
 

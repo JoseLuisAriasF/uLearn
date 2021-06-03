@@ -65,7 +65,6 @@ public class activity_Pupiletra extends AppCompatActivity {
         textTiempo.setText(String.format("%02d:%02d:%02d", hour, minute, second));
     }
 
-
     private void cargarVistas() {
 
         textTiempo = findViewById(R.id.textoTiempo);
@@ -100,8 +99,6 @@ public class activity_Pupiletra extends AppCompatActivity {
                 cargarDatosEnVistas();
             }
         });
-
-
     }
 
     private void cargarNumero1_Numero2(){

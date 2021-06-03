@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topView" />
 
     <EditText
-        android:id="@+id/smeses"
+        android:id="@+id/txtCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view5" />
 
     <EditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/txtPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smeses" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreo" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
     <TextView
         android:id="@+id/forgotPassword"

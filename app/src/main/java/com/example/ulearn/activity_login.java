@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,7 +26,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class activity_login extends AppCompatActivity {
-    private Button b;
+
+
+    //VARIABLES PARA LOGEARSE POR CORREO
+    private EditText mEditTextCorreo, mEditTextPassword;
+    private Button mButtonLogin;
+    private String correo = "";
+    private String password ="";
+
+
+
     ImageView googleb;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
@@ -36,7 +46,31 @@ public class activity_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+
+        mAuth = FirebaseAuth.getInstance();
+
+        mEditTextCorreo = findViewById(R.id.txtCorreo);
+        mEditTextPassword = findViewById(R.id.txtPassword);
+        mButtonLogin = findViewById(R.id.btnLogin);
+
+        mButtonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                correo = mEditTextCorreo.getText().toString();
+                password = mEditTextPassword.getText().toString();
+
+
+                if(!correo.isEmpty() && !password.isEmpty()){
+                    loginUser();
+                }else{
+                    Toast.makeText(activity_login.this, "Complete los campos", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
+       /* GoogleSignInOptions gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
@@ -49,37 +83,56 @@ public class activity_login extends AppCompatActivity {
             public void onClick(View v) {
                 signIn();
             }
-        });
+        });*/
 
-        b=findViewById(R.id.btnregistrar);
-        b.setOnClickListener(new View.OnClickListener() {
+    }
+
+
+    private void loginUser(){
+
+        mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View v) {
-                SiguienteLogin();
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }else{
+                    Toast.makeText(activity_login.this, "No se pudo iniciar sesión, compruebe los datos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
     }
 
+    /*@Override
+    protected void onStart() {
+        super.onStart();
+
+        if(mAuth.getCurrentUser() != null){
+            startActivity(new Intent(activity_login.this,MainActivity.class));
+            finish();
+        }
+
+    }*/
+
     private void signIn(){
         Intent loguearse=mGoogleSignInClient.getSignInIntent();
         startActivityForResult(loguearse, RC_SIGN_IN);
     }
-    public void SiguienteLogin(){
-        Intent siguiente=new Intent(this,MainActivity.class);
-        startActivity(siguiente);
-    }
 
     public void fsolvidepass(View view){
-        Intent siguiente=new Intent(this,activity_olvidepass.class);
-        startActivity(siguiente);
-    }
-    public void fsregistrar(View view){
-        Intent siguiente=new Intent(this,activity_register.class);
+        Intent siguiente=new Intent(getApplicationContext(),activity_olvidepass.class);
         startActivity(siguiente);
     }
 
-    @Override
+    public void fsregistrar(View view) {
+
+        Intent siguiente=new Intent(getApplicationContext(),activity_register.class);
+        startActivity(siguiente);
+    }
+
+
+   /* @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //Resultado devuelto al iniciar el Intent de GoogleSignInApi.getSignInIntent (...);
@@ -136,5 +189,6 @@ public class activity_login extends AppCompatActivity {
             startActivity(dashboardActivity);
         }
         super.onStart();
-    }
+    }*/
+
 }

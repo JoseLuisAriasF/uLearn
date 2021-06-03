@@ -20,8 +20,8 @@ public class activity_memoria extends AppCompatActivity {
     ImageButton imb00,imb01,imb02,imb03,imb04,imb05,imb06,imb07,imb08,imb09,imb10,imb11,imb12,imb13,imb14,imb15;
     ImageButton [] tablero = new ImageButton[16];
     Button reiniciar, salir;
-    TextView textoPuntuacion;
-    int puntuacion;
+    TextView textoMovimiento;
+    int movimiento;
     int aciertos;
 
     int [] imagenes;
@@ -106,10 +106,10 @@ public class activity_memoria extends AppCompatActivity {
 
 
     private void cargartexto(){
-        textoPuntuacion = findViewById(R.id.txtPuntuacion);
-        puntuacion = 0;
+        textoMovimiento = findViewById(R.id.txtMovimiento);
+        movimiento = 0;
         aciertos = 0;
-        textoPuntuacion.setText("" + puntuacion);
+        textoMovimiento.setText("" + movimiento);
     }
 
     private void cargarImagenes(){
@@ -162,8 +162,8 @@ public class activity_memoria extends AppCompatActivity {
                 primero = null;
                 bloqueo = false;
                 aciertos++;
-                puntuacion++;
-                textoPuntuacion.setText(""+ puntuacion);
+                movimiento++;
+                textoMovimiento.setText(""+ movimiento);
 
                 if(aciertos == imagenes.length){
                     Toast toast = Toast.makeText(getApplicationContext(), "Felicidades, has ganado!!", Toast.LENGTH_LONG);
@@ -184,8 +184,8 @@ public class activity_memoria extends AppCompatActivity {
 
                         bloqueo = false;
                         primero = null;
-                        puntuacion--;
-                        textoPuntuacion.setText("" + puntuacion);
+                        movimiento++;
+                        textoMovimiento.setText("" + movimiento);
                     }
                 },1000);
             }

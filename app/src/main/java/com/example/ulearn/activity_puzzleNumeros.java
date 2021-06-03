@@ -63,6 +63,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     }
 
     private void cargarVistas(){
+
         textMov = findViewById(R.id.txtMovimientos);
         textTime = findViewById(R.id.txtTiempo);
         group=findViewById(R.id.group);
@@ -186,7 +187,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         LayoutInflater imagen_alert = LayoutInflater.from(activity_puzzleNumeros.this);
         final View Img = imagen_alert.inflate(R.layout.imghelp,null);
         builder.setView(Img);
-        builder.setTitle("Ayuda").setMessage("Se debe ordenar los numeros del 1 al 15. De la siguieneta manera:")
+        builder.setTitle("Ayuda").setMessage("Se debe ordenar los numeros del 1 al 15. De la siguiente manera:")
         .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

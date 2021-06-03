@@ -27,9 +27,10 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-       // final TextView textView = root.findViewById(R.id.text_home);
-        final LinearLayout linear = root.findViewById(R.id.linearLayout2);
-        linear.setOnClickListener(new View.OnClickListener() {
+
+
+        final LinearLayout linearMatematica = root.findViewById(R.id.linearMatematica);
+        linearMatematica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), activity_mate.class);
@@ -37,8 +38,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        final LinearLayout linearExtras = root.findViewById(R.id.linearExtras);
-        linear.setOnClickListener(new View.OnClickListener() {
+        final LinearLayout linearMemoriayReaccion = root.findViewById(R.id.linearMemoriayReaccion);
+        linearMemoriayReaccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), activity_extras.class);

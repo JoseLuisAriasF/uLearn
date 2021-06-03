@@ -47,7 +47,7 @@
                     <ImageView
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/sumaa" />
 
                     <TextView
 
@@ -90,7 +90,7 @@
                         android:layout_gravity="center"
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/rompecabezas" />
 
                     <TextView
 
@@ -132,7 +132,7 @@
                     <ImageView
                         android:layout_width="150dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/mult" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -165,6 +165,7 @@
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="@drawable/round_bg"
                     android:clickable="true"
+                    android:gravity="center"
                     android:onClick="juegoPupiletra"
                     android:orientation="vertical">
 
@@ -172,7 +173,7 @@
                         android:layout_width="150dp"
                         android:layout_height="120dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/logo" />
+                        android:src="@drawable/pupi" />
 
 
                     <TextView
@@ -180,7 +181,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pupiletra de Numeros"
+                        android:text="Pupiletra \nde \nNumeros"
                         android:textColor="@color/white"
                         android:textSize="25dp"
                         android:textStyle="bold" />

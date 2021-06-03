@@ -272,13 +272,13 @@ public class activity_sumayresta extends AppCompatActivity {
 
 
     public int aleatorioNumeroUno(){
-        int numero = (int) (Math.random() * 20) + 1;
+        int numero = (int) (Math.random() * 12) + 1;
         return numero;
     }
 
 
     public int aleatorioNumeroDos(){
-        int numero = (int) (Math.random() * 20) + 1;
+        int numero = (int) (Math.random() * 12) + 1;
         return numero;
     }
 
@@ -293,7 +293,7 @@ public class activity_sumayresta extends AppCompatActivity {
     }
 
     public int aleatorioRespuesta(){
-        int numero = (int) (Math.random() * 41) ;
+        int numero = (int) (Math.random() * 25) ;
         return numero;
     }
 

@@ -34,7 +34,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:id="@+id/linearLayout2"
+                android:id="@+id/linearMatematica"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:clickable="true"
@@ -196,14 +196,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/mail" />
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/puzzle" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Otros"
+                    android:text="Puzzle"
                     android:textColor="@color/white"
                     android:textSize="25dp"
                     android:textStyle="bold" />
@@ -227,21 +227,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_bg"
-                android:id="@+id/linearExtras"
+                android:id="@+id/linearMemoriayReaccion"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/mail" />
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/mem" />
 
                 <TextView
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Extras"
+                    android:text="Memoria"
                     android:textColor="@color/white"
                     android:textSize="25dp"
                     android:textStyle="bold" />
