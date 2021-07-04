@@ -27,7 +27,7 @@ import java.util.Map;
 
 import kotlinx.coroutines.AwaitKt;
 
-public class activity_register extends AppCompatActivity {
+public class    activity_register extends AppCompatActivity {
 
     private EditText edNombre, edCorreo, edPassword;
     private Button btnRegistrar;
@@ -93,6 +93,7 @@ public class activity_register extends AppCompatActivity {
                     map.put("nombre", nombre);
                     map.put("correo", correo);
                     map.put("password", password);
+
 
                     mDatabase.child("Usuario").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

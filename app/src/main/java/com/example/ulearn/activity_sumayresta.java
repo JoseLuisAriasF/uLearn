@@ -29,6 +29,10 @@ public class activity_sumayresta extends AppCompatActivity {
     String signoAleatorio;
     boolean flag = true, verificar;
     char[] arraySigno = {'+', '-'};
+
+
+    private final static String nombreJuego = "Suma y Resta";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +123,7 @@ public class activity_sumayresta extends AppCompatActivity {
             bandera = false;
             bandera1 = false;
             Intent miIntent = new Intent(activity_sumayresta.this,activity_resultados.class);
+            miIntent.putExtra("variable_nomJuego",nombreJuego);
             miIntent.putExtra("variable_correctos", correctos);
             miIntent.putExtra("variable_puntajes", puntaje);
             startActivity(miIntent);
@@ -272,13 +277,13 @@ public class activity_sumayresta extends AppCompatActivity {
 
 
     public int aleatorioNumeroUno(){
-        int numero = (int) (Math.random() * 12) + 1;
+        int numero = (int) (Math.random() * 9) + 1;
         return numero;
     }
 
 
     public int aleatorioNumeroDos(){
-        int numero = (int) (Math.random() * 12) + 1;
+        int numero = (int) (Math.random() * 9) + 1;
         return numero;
     }
 
@@ -293,7 +298,7 @@ public class activity_sumayresta extends AppCompatActivity {
     }
 
     public int aleatorioRespuesta(){
-        int numero = (int) (Math.random() * 25) ;
+        int numero = (int) (Math.random() * 18) + 1;
         return numero;
     }
 

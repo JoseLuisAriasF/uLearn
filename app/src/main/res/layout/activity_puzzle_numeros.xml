@@ -87,7 +87,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        
+
         <Button
             android:id="@+id/button1"
             android:layout_alignParentStart="true"
@@ -119,12 +119,13 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:onClick="buttonClick"/>
+
         <Button
             android:id="@+id/button4"
             android:textSize="25dp"
-            android:layout_toEndOf="@+id/button3"
-            android:layout_alignParentTop="true"
-            android:tag="03"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/button1"
+            android:tag="10"
             android:text="4"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -133,130 +134,58 @@
         <Button
             android:id="@+id/button5"
             android:textSize="25dp"
-            android:layout_alignParentStart="true"
+            android:layout_toEndOf="@+id/button1"
             android:layout_below="@id/button1"
-            android:tag="10"
+            android:tag="11"
             android:text="5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="buttonClick"/>
+        <Button
+            android:id="@+id/button6"
+            android:textSize="25dp"
+            android:layout_below="@id/button1"
+            android:layout_toEndOf="@id/button2"
+            android:tag="12"
+            android:text="6"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:onClick="buttonClick"/>
+
+
+
+        <Button
+            android:id="@+id/button7"
+            android:textSize="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/button5"
+            android:tag="20"
+            android:text="7"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:onClick="buttonClick"/>
 
         <Button
-            android:id="@+id/button6"
-            android:textSize="25dp"
-            android:layout_toEndOf="@+id/button1"
-            android:layout_below="@id/button1"
-            android:tag="11"
-            android:text="6"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-        <Button
-            android:id="@+id/button7"
-            android:textSize="25dp"
-            android:layout_below="@id/button1"
-            android:layout_toEndOf="@id/button2"
-            android:tag="12"
-            android:text="7"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-        <Button
             android:id="@+id/button8"
             android:textSize="25dp"
-            android:layout_below="@id/button1"
-            android:layout_toEndOf="@id/button3"
-            android:tag="13"
+            android:layout_toEndOf="@+id/button1"
+            android:layout_below="@id/button5"
+            android:tag="21"
             android:text="8"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:onClick="buttonClick"/>
 
-
         <Button
             android:id="@+id/button9"
             android:textSize="25dp"
-            android:layout_alignParentStart="true"
+            android:layout_toEndOf="@+id/button2"
             android:layout_below="@id/button5"
-            android:tag="20"
-            android:text="9"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-
-        <Button
-            android:id="@+id/button10"
-            android:textSize="25dp"
-            android:layout_toEndOf="@+id/button1"
-            android:layout_below="@id/button5"
-            android:tag="21"
-            android:text="10"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-        <Button
-            android:id="@+id/button11"
-            android:textSize="25dp"
-            android:layout_below="@id/button5"
-            android:layout_toEndOf="@id/button2"
             android:tag="22"
-            android:text="11"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-        <Button
-            android:id="@+id/button12"
-            android:textSize="25dp"
-            android:layout_below="@id/button5"
-            android:layout_toEndOf="@id/button3"
-            android:tag="23"
-            android:text="12"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-
-        <Button
-            android:id="@+id/button13"
-            android:textSize="25dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/button9"
-            android:tag="30"
-            android:text="13"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-
-        <Button
-            android:id="@+id/button14"
-            android:textSize="25dp"
-            android:layout_toEndOf="@+id/button1"
-            android:layout_below="@id/button9"
-            android:tag="31"
-            android:text="14"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-        <Button
-            android:id="@+id/button15"
-            android:textSize="25dp"
-            android:layout_below="@id/button9"
-            android:layout_toEndOf="@id/button2"
-            android:tag="32"
-            android:text="15"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:onClick="buttonClick"/>
-        <Button
-            android:id="@+id/button16"
-            android:textSize="25dp"
-            android:layout_below="@id/button9"
-            android:layout_toEndOf="@id/button3"
-            android:tag="33"
             android:layout_width="60dp"
             android:background="@color/colorFreeButton"
             android:layout_height="60dp"
             android:onClick="buttonClick"/>
-
 
 
     </RelativeLayout>

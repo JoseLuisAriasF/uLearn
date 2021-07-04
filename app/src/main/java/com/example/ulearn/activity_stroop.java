@@ -17,6 +17,8 @@ public class activity_stroop extends AppCompatActivity {
     private String arregloNombres[]=new String[4];
     private int arregloColores[]=new int[4];
 
+    private final static String nombreJuego = "Strooper";
+
     LinearLayout barraSuperior;
     TextView txtCorrectas, txtIntentos, txtPalabra, txtPuntaje;
     ProgressBar pTiempo;
@@ -150,6 +152,7 @@ public class activity_stroop extends AppCompatActivity {
             bandera = false;
             bandera1 = false;
             Intent miIntent = new Intent(activity_stroop.this,activity_resultados.class);
+            miIntent.putExtra("variable_nomJuego",nombreJuego);
             miIntent.putExtra("variable_correctos", correctos);
             miIntent.putExtra("variable_puntajes", puntaje);
             startActivity(miIntent);

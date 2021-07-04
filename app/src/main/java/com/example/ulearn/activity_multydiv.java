@@ -38,6 +38,8 @@ public class activity_multydiv extends AppCompatActivity {
     int [] numNueve_divisores = {1, 3, 9};
     int [] numDiez_divisores = {1, 2, 5, 10};
 
+    private final static String nombreJuego = "Multiplicación y División";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +129,7 @@ public class activity_multydiv extends AppCompatActivity {
             bandera = false;
             bandera1 = false;
             Intent miIntent = new Intent(activity_multydiv.this,activity_resultados.class);
+            miIntent.putExtra("variable_nomJuego", nombreJuego);
             miIntent.putExtra("variable_correctos", correctos);
             miIntent.putExtra("variable_puntajes", puntaje);
             startActivity(miIntent);
@@ -442,18 +445,18 @@ public class activity_multydiv extends AppCompatActivity {
 
 
     public int aleatorioNumeroUno(){
-        int numero = (int) (Math.random() * 10) + 1;
+        int numero = (int) (Math.random() * 9) + 1;
         return numero;
     }
 
 
     public int aleatorioNumeroDos(){
-        int numero = (int) (Math.random() * 10) + 1;
+        int numero = (int) (Math.random() * 9) + 1;
         return numero;
     }
 
     public int aleatorioSigno(){
-        int numero = (int) (Math.random() * 2) ;
+        int numero = (int) (Math.random() * 2);
         return numero;
     }
 
@@ -469,7 +472,7 @@ public class activity_multydiv extends AppCompatActivity {
 
 
     public int aleatorioRespuesta(){
-        int numero = (int) (Math.random() * 101) ;
+        int numero = (int) (Math.random() * 81) + 1;
         return numero;
     }
 
@@ -553,6 +556,4 @@ public class activity_multydiv extends AppCompatActivity {
         bandera = false;
         bandera1 = false;
     }
-
-
 }

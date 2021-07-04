@@ -2,6 +2,7 @@ package com.example.ulearn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,7 +22,7 @@ public class activity_memoria extends AppCompatActivity {
     ImageButton [] tablero = new ImageButton[16];
     Button reiniciar, salir;
     TextView textoMovimiento;
-    int movimiento;
+    int movimiento, puntaje;
     int aciertos;
 
     int [] imagenes;
@@ -32,6 +33,8 @@ public class activity_memoria extends AppCompatActivity {
     int numeroPrimero, numeroSegundo;
     boolean bloqueo = false;
     final Handler handler = new Handler();
+
+    private final static String nombreJuego = "Memoria";
 
 
 
@@ -168,6 +171,24 @@ public class activity_memoria extends AppCompatActivity {
                 if(aciertos == imagenes.length){
                     Toast toast = Toast.makeText(getApplicationContext(), "Felicidades, has ganado!!", Toast.LENGTH_LONG);
                     toast.show();
+
+                    if(movimiento<9){
+                        puntaje= 100;
+                    }else if(movimiento < 18){
+                        puntaje = 80;
+                    }else if(movimiento < 27){
+                        puntaje = 50;
+                    }else{
+                        puntaje = 30;
+                    }
+
+                    Intent miIntent = new Intent(activity_memoria.this,activity_resultados.class);
+                    miIntent.putExtra("variable_nomJuego",nombreJuego);
+                    miIntent.putExtra("variable_correctos", "");
+                    miIntent.putExtra("variable_puntajes", puntaje);
+                    startActivity(miIntent);
+                    finish();
+
                 }
             }else{
 

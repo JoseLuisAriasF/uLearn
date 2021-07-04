@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +22,8 @@ import java.util.TimerTask;
 
 public class activity_puzzleNumeros extends AppCompatActivity {
 
-    private int emptyX = 3;
-    private int emptyY = 3;
+    private int emptyX = 2;
+    private int emptyY = 2;
     private RelativeLayout group;
     private Button [][] buttons;
     private Button btnRestart, btnExit;
@@ -30,6 +32,13 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     private int MovCount = 0;
     private Timer timer;
     private int timeCount = 0;
+
+    Handler handler = new Handler();
+    Runnable runnable;
+    int delay = 5000;
+
+    int movimientos, puntaje;
+    private final static String nombreJuego = "Puzzle de Numeros";
 
 
     @Override
@@ -42,6 +51,24 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         generarNumeros();
         cargarDatosEnVistas();
 
+        handler.postDelayed(runnable = new Runnable() {
+            public void run() {
+                //handler.postDelayed(runnable, delay);
+
+                movimientos = MovCount;
+                puntaje = 0;
+
+                Toast.makeText(getApplicationContext(),"Se terminó el tiempo, has perdido", Toast.LENGTH_SHORT).show();
+                timer.cancel();
+
+                Intent miIntent = new Intent(activity_puzzleNumeros.this,activity_resultados.class);
+                miIntent.putExtra("variable_nomJuego", nombreJuego);
+                miIntent.putExtra("variable_correctos", movimientos);
+                miIntent.putExtra("variable_puntajes", puntaje);
+                startActivity(miIntent);
+                finish();
+            }
+        }, delay);
     }
 
     private void cargarTimer(){
@@ -60,6 +87,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         int hour = timeCount / 3600;
         int minute = (timeCount - hour * 3600) / 60;
         textTime.setText(String.format("%02d:%02d:%02d", hour, minute, second));
+
     }
 
     private void cargarVistas(){
@@ -72,10 +100,10 @@ public class activity_puzzleNumeros extends AppCompatActivity {
 
 
         cargarTimer();
-        buttons = new Button[4][4];
+        buttons = new Button[3][3];
 
         for(int i = 0; i < group.getChildCount(); i++){
-            buttons[i/4][i%4] = (Button) group.getChildAt(i);
+            buttons[i/3][i%3] = (Button) group.getChildAt(i);
         }
 
         btnExit.setOnClickListener(new View.OnClickListener() {
@@ -90,19 +118,20 @@ public class activity_puzzleNumeros extends AppCompatActivity {
             public void onClick(View v) {
                generarNumeros();
                cargarDatosEnVistas();
+                timeCount = 0;
             }
         });
     }
 
     private void cargarNumeros(){
-        tiles = new int [16];
+        tiles = new int [9];
         for(int i = 0; i < group.getChildCount() - 1 ; i ++){
             tiles[i] = i + 1;
         }
     }
 
     private void generarNumeros(){
-        int n = 15;
+        int n = 8;
         Random random = new Random();
         while(n > 1){
             int randomNum = random.nextInt(n--);
@@ -117,7 +146,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
 
     private boolean Flag(){
         int count = 0;
-        for(int i = 0; i < 15; i ++){
+        for(int i = 0; i < 8; i ++){
             for(int j = 0; j < i; j++){
                 if(tiles[j] > tiles[i]){
                     count++;
@@ -128,12 +157,12 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     }
 
     private void  cargarDatosEnVistas(){
-        emptyX = 3;
-        emptyY = 3;
+        emptyX = 2;
+        emptyY = 2;
 
         for(int i = 0; i < group.getChildCount() -1; i++){
-            buttons[i/4][i%4].setText(String.valueOf(tiles[i]));
-            buttons[i/4][i%4].setBackgroundResource(android.R.drawable.btn_default);
+            buttons[i/3][i%3].setText(String.valueOf(tiles[i]));
+            buttons[i/3][i%3].setBackgroundResource(android.R.drawable.btn_default);
         }
         buttons[emptyX][emptyY].setText("");
         buttons[emptyX][emptyY].setBackgroundColor(ContextCompat.getColor(this,R.color.colorFreeButton));
@@ -160,9 +189,9 @@ public class activity_puzzleNumeros extends AppCompatActivity {
     private void checkWin(){
         boolean Win = false;
 
-        if(emptyX == 3 && emptyY == 3){
+        if(emptyX == 2 && emptyY == 2){
             for(int i = 0; i < group.getChildCount() - 1; i++){
-                if(buttons[i/4][i%4].getText().toString().equals(String.valueOf(i+1))){
+                if(buttons[i/3][i%3].getText().toString().equals(String.valueOf(i+1))){
                     Win = true;
                 }else{
                     Win = false;
@@ -174,11 +203,27 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         if(Win){
             Toast.makeText(this,"Felicidades, has ganado", Toast.LENGTH_SHORT).show();
             for(int i = 0; i < group.getChildCount(); i++){
-                buttons[i/4][i%4].setClickable(false);
+                buttons[i/3][i%3].setClickable(false);
             }
 
             timer.cancel();
-            btnRestart.setClickable(false);
+
+            movimientos = MovCount;
+
+            if(movimientos <= 200){
+                puntaje = 200;
+            }else if(puntaje <= 400){
+                puntaje = 100;
+            }else {
+                puntaje = 50;
+            }
+
+            Intent miIntent = new Intent(activity_puzzleNumeros.this,activity_resultados.class);
+            miIntent.putExtra("variable_nomJuego", nombreJuego);
+            miIntent.putExtra("variable_correctos", movimientos);
+            miIntent.putExtra("variable_puntajes", puntaje);
+            startActivity(miIntent);
+            finish();
         }
     }
 
@@ -187,7 +232,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         LayoutInflater imagen_alert = LayoutInflater.from(activity_puzzleNumeros.this);
         final View Img = imagen_alert.inflate(R.layout.imghelp,null);
         builder.setView(Img);
-        builder.setTitle("Ayuda").setMessage("Se debe ordenar los numeros del 1 al 15. De la siguiente manera:")
+        builder.setTitle("Ayuda").setMessage("Se debe ordenar los numeros del 1 al 8. De la siguiente manera:")
         .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

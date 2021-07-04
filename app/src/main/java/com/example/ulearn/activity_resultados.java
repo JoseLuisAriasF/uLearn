@@ -24,14 +24,18 @@ public class activity_resultados extends AppCompatActivity {
     TextView txtResCorrectas, txtResPuntaje, txtUsuario;
     FloatingActionButton btnInicio;
     int variable_correctos, variable_puntaje;
+    String nomJuego="";
 
     private DatabaseReference databaseReference;
 
+    TextView txtTexto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados);
+
+        txtTexto = findViewById(R.id.txtPalabrasCorrectas);
 
 
         Bundle datos = this.getIntent().getExtras();
@@ -45,7 +49,11 @@ public class activity_resultados extends AppCompatActivity {
 
         variable_correctos = datos.getInt("variable_correctos");
         variable_puntaje = datos.getInt("variable_puntajes");
+        nomJuego = datos.getString("variable_nomJuego");
 
+        if(nomJuego.equals("Puzzle de Numeros")){
+            txtTexto.setText("Movimientos");
+        }
 
         txtResPuntaje.setText(""+variable_puntaje);
         txtResCorrectas.setText(""+variable_correctos);
@@ -57,8 +65,9 @@ public class activity_resultados extends AppCompatActivity {
             }
         });
 
-
+        //Obtener los datos en el celular con sharePreferences
         SharedPreferences preferencias = getSharedPreferences("Dato",Context.MODE_PRIVATE);
+        String ValorCorreo = preferencias.getString("MiCorreo", "No hay dato");
         String valorNombre = preferencias.getString("MiNombre", "No hay dato");
         String valorIdusuario = preferencias.getString("MiId", "No hay dato");
 
@@ -67,14 +76,14 @@ public class activity_resultados extends AppCompatActivity {
 
         //Guardar datos en Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        guardarPuntaje(valorIdusuario, "Suma y resta", String.valueOf(variable_puntaje));
+        guardarPuntaje(valorIdusuario, valorNombre,ValorCorreo ,nomJuego, variable_puntaje);
 
 
     }
 
 
-    private void guardarPuntaje(String idUsuario, String nombreJuego, String puntaje){
-        Puntaje nuevopuntaje = new Puntaje(idUsuario, nombreJuego, puntaje);
+    private void guardarPuntaje(String idUsuario, String nombreUsuario, String correoUsuario, String nombreJuego, int puntaje){
+        Puntaje nuevopuntaje = new Puntaje(idUsuario, nombreUsuario, correoUsuario,nombreJuego, puntaje);
         databaseReference.child("Ranking").child(UUID.randomUUID().toString()).setValue(nuevopuntaje);
 
     }
