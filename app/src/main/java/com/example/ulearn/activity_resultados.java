@@ -51,12 +51,20 @@ public class activity_resultados extends AppCompatActivity {
         variable_puntaje = datos.getInt("variable_puntajes");
         nomJuego = datos.getString("variable_nomJuego");
 
-        if(nomJuego.equals("Puzzle de Numeros")){
-            txtTexto.setText("Movimientos");
-        }
-
         txtResPuntaje.setText(""+variable_puntaje);
         txtResCorrectas.setText(""+variable_correctos);
+
+        if(nomJuego.equals("Puzzle de Numeros")){
+            txtTexto.setText("Movimientos");
+        }else if(nomJuego.equals("Memoria")){
+            txtTexto.setText("Movimientos");
+        }else if(nomJuego.equals("Pupiletra")){
+            txtTexto.setText("Tiempo");
+            String variable_tiempo  = datos.getString("variable_correctos");
+            txtResCorrectas.setText(""+variable_tiempo);
+        }
+
+
 
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override

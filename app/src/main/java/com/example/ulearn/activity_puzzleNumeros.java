@@ -35,7 +35,7 @@ public class activity_puzzleNumeros extends AppCompatActivity {
 
     Handler handler = new Handler();
     Runnable runnable;
-    int delay = 5000;
+    int delay = 240000;
 
     int movimientos, puntaje;
     private final static String nombreJuego = "Puzzle de Numeros";
@@ -246,4 +246,17 @@ public class activity_puzzleNumeros extends AppCompatActivity {
         dialogHelp().show();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacks(runnable);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler.removeCallbacks(runnable);
+    }
 }

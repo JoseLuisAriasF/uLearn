@@ -172,19 +172,17 @@ public class activity_memoria extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Felicidades, has ganado!!", Toast.LENGTH_LONG);
                     toast.show();
 
-                    if(movimiento<9){
-                        puntaje= 100;
-                    }else if(movimiento < 18){
-                        puntaje = 80;
-                    }else if(movimiento < 27){
-                        puntaje = 50;
+                    if(movimiento <= 25){
+                        puntaje= 200;
+                    }else if(movimiento <= 40){
+                        puntaje = 150;
                     }else{
-                        puntaje = 30;
+                        puntaje = 80;
                     }
 
                     Intent miIntent = new Intent(activity_memoria.this,activity_resultados.class);
                     miIntent.putExtra("variable_nomJuego",nombreJuego);
-                    miIntent.putExtra("variable_correctos", "");
+                    miIntent.putExtra("variable_correctos", movimiento);
                     miIntent.putExtra("variable_puntajes", puntaje);
                     startActivity(miIntent);
                     finish();
